@@ -1,19 +1,27 @@
 public class Main {
     public static void main(String[] args) {
-        int a = -3;
-        int b = 5;
-        int bi = 0;
-        int sm = 0;
-        int result = 0;
+        int answer = 0;
+        long n = 626331;
 
-        if (a >= b){
-            bi = a;
-            sm = b;
-        } else bi = b; sm = a;
+        if (n == 1){ answer = 0;}
+        while (true) {
+            if (answer >= 500){
+                answer = -1;
+                break;
+            }
+            if (n % 2 == 0) {
+                n /= 2;
+            } else {
+                n = (n * 3) + 1;
+            }
+            answer++;
 
-        for (int i = sm; i <= bi; i++){
-            result += i;
+            if (n == 1)break;
+
         }
-        System.out.println(result);
+        System.out.println(answer);
     }
 }
+//1-1. 입력된 수가 짝수라면 2로 나눕니다.
+//        1-2. 입력된 수가 홀수라면 3을 곱하고 1을 더합니다.
+//        2. 결과로 나온 수에 같은 작업을 1이 될 때까지 반복합니다.
