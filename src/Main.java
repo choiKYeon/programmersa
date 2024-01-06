@@ -1,22 +1,19 @@
 public class Main {
     public static void main(String[] args) {
-        int x = 1238;
-        int num = 0;
-        int result = x;
+        int a = -3;
+        int b = 5;
+        int bi = 0;
+        int sm = 0;
+        int result = 0;
 
-        boolean answer = false;
-        while (true) {
+        if (a >= b){
+            bi = a;
+            sm = b;
+        } else bi = b; sm = a;
 
-            num += result % 10;
-            result = result / 10;
-            if (result < 1 && x % num == 0) {
-                answer = true;
-                break;
-            } else if (result < 1 && x % num != 0) {
-                answer = false;
-                break;
-            }
+        for (int i = sm; i <= bi; i++){
+            result += i;
         }
-        System.out.println(answer);
+        System.out.println(result);
     }
 }
