@@ -1,27 +1,21 @@
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
+import java.util.Arrays;
+import java.util.Stack;
 
 public class Main {
     public static void main(String[] args) {
-        int[] arr = {5, 9, 7, 10};
-        int divisor = 5;
-        List<Integer> list = new ArrayList<>();
-        for (int i = 0; i < arr.length; i++){
-            if (arr[i] % divisor == 0) {
-                list.add(arr[i]);
+        int answer = 0;
+        int[] numbers = {1,2,3,4,6,7,8,0};
+        Arrays.sort(numbers);
+        Stack<Integer> stack = new Stack<>();
+        for (int i = 0; i < numbers.length; i++){
+                stack.add(numbers[i]);
+        }
+        for (int j = 0; j <= 9; j++){
+            stack.search(j);
+            if (stack.search(j) == -1){
+                answer += j;
             }
         }
-        Collections.sort(list);
-
-        int[] result = new int[list.size()];
-        if(list.size() == 0){
-            result = new int[]{-1};
-        }
-        for (int i = 0; i < list.size(); i++) {
-            result[i] = list.get(i);
-
-        }
-        System.out.println(list);
+        System.out.println(answer);
     }
 }
