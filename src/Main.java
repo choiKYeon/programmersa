@@ -1,27 +1,27 @@
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
 public class Main {
     public static void main(String[] args) {
-        int answer = 0;
-        long n = 626331;
-
-        if (n == 1){ answer = 0;}
-        while (true) {
-            if (answer >= 500){
-                answer = -1;
-                break;
+        int[] arr = {5, 9, 7, 10};
+        int divisor = 5;
+        List<Integer> list = new ArrayList<>();
+        for (int i = 0; i < arr.length; i++){
+            if (arr[i] % divisor == 0) {
+                list.add(arr[i]);
             }
-            if (n % 2 == 0) {
-                n /= 2;
-            } else {
-                n = (n * 3) + 1;
-            }
-            answer++;
+        }
+        Collections.sort(list);
 
-            if (n == 1)break;
+        int[] result = new int[list.size()];
+        if(list.size() == 0){
+            result = new int[]{-1};
+        }
+        for (int i = 0; i < list.size(); i++) {
+            result[i] = list.get(i);
 
         }
-        System.out.println(answer);
+        System.out.println(list);
     }
 }
-//1-1. 입력된 수가 짝수라면 2로 나눕니다.
-//        1-2. 입력된 수가 홀수라면 3을 곱하고 1을 더합니다.
-//        2. 결과로 나온 수에 같은 작업을 1이 될 때까지 반복합니다.
