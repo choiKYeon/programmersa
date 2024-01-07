@@ -1,21 +1,28 @@
+import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Stack;
+import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        int answer = 0;
-        int[] numbers = {1,2,3,4,6,7,8,0};
-        Arrays.sort(numbers);
-        Stack<Integer> stack = new Stack<>();
-        for (int i = 0; i < numbers.length; i++){
-                stack.add(numbers[i]);
+        int[] arr = {101, 102};
+        List<Integer> list = new ArrayList<>();
+        if (arr.length == 1){
+            arr = new int[]{-1};
         }
-        for (int j = 0; j <= 9; j++){
-            stack.search(j);
-            if (stack.search(j) == -1){
-                answer += j;
+        for (int i = 0; i < arr.length; i++){
+            list.add(arr[i]);
+        }
+        Arrays.sort(arr);
+        for (int j = 0; j < arr.length; j++){
+            if (list.get(j) == arr[0]){
+                list.remove(list.get(j));
+                break;
             }
         }
-        System.out.println(answer);
+        int[] result = new int[list.size()];
+        for (int x = 0; x < list.size(); x++){
+            result[x] = list.get(x);
+        }
+        System.out.println(list);
     }
 }
